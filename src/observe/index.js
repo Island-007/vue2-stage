@@ -1,3 +1,11 @@
+/*
+ * @Author: zhangpeiwen
+ * @Date: 2023-01-12 11:07:11
+ * @LastEditTime: 2023-01-12 11:09:26
+ * @LastEditors: zhangpeiwen
+ * @Description: 
+ * @FilePath: \vue2-stage\vue2-stage\src\observe\index.js
+ */
 class Observer {
     constructor(data) {
         this.walk(data)
@@ -8,10 +16,12 @@ class Observer {
 }
 
 export function defineReactive(target, key, value) {
+    observe(value)
     Object.defineProperty(target, key, {
         set(newValue) {
             console.log('设置值')
             if (newValue === value) return
+            observe(newValue)
             value = newValue
         },
         get() {
