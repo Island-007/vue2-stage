@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script src="../dist/vue.js"></script>
     <script>
-        const vm = new Vue({
-            data() {
-                return {
-                    name: 'John',
-                    age: 18
-                }
-            }
-        })
+      const vm = new Vue({
+        data() {
+          return {
+            personInfo: {
+              name: "John",
+              age: 18,
+              phone: "13300000000",
+            },
+            arr: [
+              {
+                id: "1",
+                value: "test",
+              },
+              {
+                id: "2",
+                value: "test",
+              },
+            ],
+          };
+        },
+      });
 
-        console.log(vm._data)
-        vm._data.age = 19
-        console.log(vm._data.age)
+      console.log(vm);
+      console.log(vm.arr);
+      vm.arr.push({
+        id: "3",
+        value: "test",
+      });
+      vm.arr.splice(2, 0, {
+        id: "4",
+        value: "test",
+      });
     </script>
-</body>
-
+  </body>
 </html>

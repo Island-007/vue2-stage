@@ -1,17 +1,23 @@
-/*
- * @Author: zhangpeiwen
- * @Date: 2023-01-12 11:07:11
- * @LastEditTime: 2023-01-12 11:09:26
- * @LastEditors: zhangpeiwen
- * @Description: 
- * @FilePath: \vue2-stage\vue2-stage\src\observe\index.js
- */
+import { arrayProperty } from './array'
 class Observer {
     constructor(data) {
+        Object.defineProperty(data,'__ob__',{
+            value:this,
+            enumerable:false,
+            configurable:true,
+            writable:true
+        })
+        if(Array.isArray(data)){
+            data.__proto__ = arrayProperty
+            this.observeArray(data)
+        }
         this.walk(data)
     }
     walk(data) {
         Object.keys(data).forEach(key => defineReactive(data, key, data[key]))
+    }
+    observeArray(data){
+        data.forEach((item) => observe(item))
     }
 }
 
