@@ -2,46 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Document</title>
   </head>
 
   <body>
+    <div id="app">
+      <div class="ele">
+        demo
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </div>
+    </div>
     <script src="../dist/vue.js"></script>
     <script>
       const vm = new Vue({
+        el: '#app',
         data() {
           return {
             personInfo: {
-              name: "John",
+              name: 'John',
               age: 18,
-              phone: "13300000000",
+              phone: '13300000000'
             },
             arr: [
               {
-                id: "1",
-                value: "test",
+                id: '1',
+                value: 'test'
               },
               {
-                id: "2",
-                value: "test",
-              },
-            ],
-          };
-        },
-      });
+                id: '2',
+                value: 'test'
+              }
+            ]
+          }
+        }
+      })
 
-      console.log(vm);
-      console.log(vm.arr);
+      console.log(vm)
+      console.log(vm.arr)
       vm.arr.push({
-        id: "3",
-        value: "test",
-      });
+        id: '3',
+        value: 'test'
+      })
       vm.arr.splice(2, 0, {
-        id: "4",
-        value: "test",
-      });
+        id: '4',
+        value: 'test'
+      })
     </script>
   </body>
 </html>
